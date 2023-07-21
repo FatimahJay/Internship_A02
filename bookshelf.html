@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bookshelf.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav-wrapper-class">
+        <ul class="nav-ul-wrapper-class">
+          <li>Books</li>
+          <li>Authors</li>
+          <li>Publishers</li>
+        </ul>
+    </nav>
+ <div class="system-title-wrapper-class-container">  
+<div class="system-title-wrapper-class">
+    <p class="system-title-class">Library Management System</p>
+</div>
+</div> 
+
+<div class="add-new-book-wrapper">
+<form class="add-book-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Book Name" required>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" placeholder="Author Name" required>
+
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher" placeholder="Publisher Name" required>
+
+    <label for="bookdate">Date:</label>
+    <input type="date" id="bookdate" name="bookdate" required>
+
+    <label for="image">Image Link:</label>
+    <input type="text" id="image" name="image" placeholder="Image Link" required>
+
+    <button type="submit"> Submit</button>
+</form>
+</div>
+
+
+<!-- <div class="book-list-grid-wrapper-class">
+        <div class="single-grid-card-wrapper-class">
+            <img class="grid-image-wrapper-class" src="images\addie_larue.png" width="80px" height="60px">
+            <div class="book-details-wrapper-class">
+                <p class="book-name-class"></p> 
+                <p class="book-author-class"></p>
+                <p class="book-publisher-details-class"></p>
+            </div>
+        </div>
+</div> -->
+
+<script src="bookshelf.js"></script>
+</body>
+</html>
