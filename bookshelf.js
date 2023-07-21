@@ -37,7 +37,6 @@ const Image = document.getElementById('image').value
 
     addBook({Name,Author,Publisher,Date,Image});
     saveToLocalStorage()
-    createBookGrid(book_list);
  form.reset();
 })
 
