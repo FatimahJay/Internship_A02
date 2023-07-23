@@ -2,15 +2,19 @@
 
 let book_list = JSON.parse(localStorage.getItem('book_list'))|| []
 
+const parentDiv = document.createElement('div')
+
 if(book_list!==[])
 {
+    parentDiv.setAttribute('class','book-list-grid-wrapper-class')    
 createBookGrid(book_list)
 }
 //functions
 
-function saveToLocalStorage() 
+function saveToLocalStorage(book_list) 
 {
 localStorage.setItem('book_list', JSON.stringify(book_list));
+createBookGrid(book_list)
 }
 
 function addBook(book_obj)
@@ -29,26 +33,27 @@ form.addEventListener('submit', (e) =>
 e.preventDefault()
 
 const Name = document.getElementById('name').value.trim()
-console.log(Name)
 const Author = document.getElementById('author').value.trim()
 const Publisher = document.getElementById('publisher').value.trim()
 const Date = document.getElementById('bookdate').value
 const Image = document.getElementById('image').value
 
     addBook({Name,Author,Publisher,Date,Image});
-    saveToLocalStorage()
+    saveToLocalStorage(book_list)
+    // createBookGrid(book_list);
  form.reset();
 })
 
 
 //process of adding book to grid ---------------------------------
 
+
+
 function createBookGrid(book_arr)
 {
 //creating parent container
-const parentDiv = document.createElement('div')
-parentDiv.setAttribute('class','book-list-grid-wrapper-class')
 
+parentDiv.innerHTML = "";
 //for each book we are creating grids and appending to parent
 //|
 //v 
@@ -79,17 +84,20 @@ bookAuthor.setAttribute('class','book-author-class')
 const bookPublisher = document.createElement('p')
 bookPublisher.setAttribute('class','book-publisher-details-class')
 
+const deleteBtn = document.createElement('button')
+deleteBtn.setAttribute('class','delete-btn-class' )
 
 // Set the text content for the <p> elements
 bookName.textContent = book_obj.Name;
 bookAuthor.textContent = "by " + book_obj.Author; 
 bookPublisher.textContent = book_obj.Publisher + " . First published " + book_obj.Date;
-
+deleteBtn.textContent = "Delete"
 
 //appending elements
 bookDetailsDiv.appendChild(bookName)
 bookDetailsDiv.appendChild(bookAuthor)
 bookDetailsDiv.appendChild(bookPublisher)
+bookDetailsDiv.appendChild(deleteBtn);
 
 gridCardDiv.appendChild(imgElement);
 gridCardDiv.appendChild(bookDetailsDiv);
@@ -104,5 +112,6 @@ parentDiv.appendChild(gridCardDiv);
 const bodyElement = document.querySelector('body')
 bodyElement.appendChild(parentDiv)
 }
+
 
 
